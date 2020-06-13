@@ -177,3 +177,15 @@ saveBtn.addEventListener("click", function (event) {
     renderLastRegistered();
   }
 });
+
+resetBtn.addEventListener("click", function (event) {
+  location.reload(true);
+});
+
+var clearBtn = document.createElement("button");
+clearBtn.textContent = "Clear";
+
+clearBtn.onclick = function (event) {
+  event.preventDefault;
+  window.localStorage.empty();
+};
