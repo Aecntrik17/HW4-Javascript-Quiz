@@ -134,8 +134,23 @@ btnB.addEventListener("click", verifyAns);
 btnC.addEventListener("click", verifyAns);
 btnD.addEventListener("click", verifyAns);
 
+renderLastRegistered();
+
 // creating function to notify user their data has been saved
 function displayMessage(type, message) {
   msgDiv.textContent = message;
   msgDiv.setAttribute("class", type);
+}
+// storing user name and sscore to local storage
+function renderLastRegistered() {
+  let userName = localStorage.getItem("userName");
+  let userScore = localStorage.getItem("userScore");
+
+  if (name && userScore === null) {
+    return;
+  }
+
+  // this is taking the saved user name and score from the local storage and writing it to the page in the placeholder input
+  userNameSpan.textContent = userName;
+  userScoreEl.textContent = score;
 }
