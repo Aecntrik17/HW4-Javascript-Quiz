@@ -154,3 +154,26 @@ function renderLastRegistered() {
   userNameSpan.textContent = userName;
   userScoreEl.textContent = score;
 }
+
+// activating the save submit button after the user inputs their name
+saveBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  // changing the name and userScore variables to allow for the value of input in local storage
+  let userName = document.querySelector("#name").value;
+  let userScore = document.querySelector("#user-score").value;
+
+  // ensuring the user inputs data into name and user score fields
+  if (userName === "") {
+    displayMessage("error", "Name cannot be blank");
+  } else if (userScore === "") {
+    displayMessage("error", "user score cannot be blank");
+  } else {
+    displayMessage("success", "Registered successfully");
+
+    // setting name and userScore inputs to local storage
+    localStorage.setItem("userName", userName);
+    localStorage.setItem("userScore", score);
+    renderLastRegistered();
+  }
+});
