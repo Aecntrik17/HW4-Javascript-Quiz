@@ -128,7 +128,14 @@ function verifyAns(event) {
   }
 }
 
+// making the answer buttons active
 btnA.addEventListener("click", verifyAns);
 btnB.addEventListener("click", verifyAns);
 btnC.addEventListener("click", verifyAns);
 btnD.addEventListener("click", verifyAns);
+
+// creating function to notify user their data has been saved
+function displayMessage(type, message) {
+  msgDiv.textContent = message;
+  msgDiv.setAttribute("class", type);
+}
