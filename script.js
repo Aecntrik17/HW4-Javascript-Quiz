@@ -52,3 +52,15 @@ function setTime() {
     set1El.style.display = "none";
   }
 }
+
+// Asking the first question after the begin button is clicked.
+function displayQuestion() {
+  introEl.style.display = "none";
+  questionEl.textContent = askQuestionEl[i].q;
+  btnA.textContent = askQuestionEl[i].opt1;
+  btnB.textContent = askQuestionEl[i].opt2;
+  btnC.textContent = askQuestionEl[i].opt3;
+  btnD.textContent = askQuestionEl[i].opt4;
+  set1El.style.display = "block";
+  beginEl.style.display = "none";
+}
