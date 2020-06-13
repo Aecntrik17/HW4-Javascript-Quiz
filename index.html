@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>HW4 - Javascript Quiz</title>
-      <!-- linking html to bootstrap -->
-      <link
-        rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-        crossorigin="anonymous"
-      />
-      <!--linking html to css  -->
-      <link rel="stylesheet" href="./style.css" />
-    </head>
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- 1)Welcome statment for the user to know this is a quiz
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW4 - Javascript Quiz</title>
+    <!-- linking html to bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    <!--linking html to css  -->
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<!-- 1)Welcome statment for the user to know this is a quiz
         2)click start button 
         3) timer, count down
         4) Create 4 multiple choice questions for user to answer via click event
@@ -32,5 +29,20 @@
         13) allow recent scores to be viewed
         14) allow user to clear the recent scores
         15) allow user to restart the quiz-->
-  </html>
+
+<body>
+    <!-- div class for the entire page -->
+    <div class="container">
+        <!-- wrapper for the welcome message -->
+        <div id="Welcome">
+            <h1>Welcome to JavaScript Quiz!</h1>
+        </div>
+
+        <div id="introduction">
+            <h5>You have 60 seconds to complete the quiz. Click the appropriate button to select the correct answer</h5>
+            <h6>Incorrect answers will result in a 5 second penalty. Click the "Begin" button to start the timer.</h6>
+        </div>
+
+</html>
+
 </html>
