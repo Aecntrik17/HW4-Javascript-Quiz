@@ -127,3 +127,8 @@ function verifyAns(event) {
     secondsLeft = 0;
   }
 }
+
+btnA.addEventListener("click", verifyAns);
+btnB.addEventListener("click", verifyAns);
+btnC.addEventListener("click", verifyAns);
+btnD.addEventListener("click", verifyAns);
