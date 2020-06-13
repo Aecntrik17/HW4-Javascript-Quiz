@@ -64,3 +64,42 @@ function displayQuestion() {
   set1El.style.display = "block";
   beginEl.style.display = "none";
 }
+
+var i = 0;
+var askQuestionEl = [
+  {
+    q:
+      "This data value type can only be one of two things; yes or no, or true or false.",
+    opt1: "Booleans",
+    opt2: "Absolutes",
+    opt3: "Variables",
+    opt4: "Concretes",
+    answer: "Booleans",
+  },
+  {
+    q: "________ are blocks of code that can be named and reused.",
+    opt1: "Functions",
+    opt2: "Syntax",
+    opt3: "Arrays",
+    opt4: "Objects",
+    answer: "Functions",
+  },
+  {
+    q:
+      "Objects are values that can contain other values. They use _______ to name values, which are a lot like variables.",
+    opt1: "Keys",
+    opt2: "Answers",
+    opt3: "Titles",
+    opt4: "Subjects",
+    answer: "Keys",
+  },
+  {
+    q:
+      "______ are values made up of text and can contain letters, numbers, symbols, punctuation, and even emoji.",
+    opt1: "Strings",
+    opt2: "Conditionals",
+    opt3: "Loops",
+    opt4: "Statements",
+    answer: "Strings",
+  },
+];
