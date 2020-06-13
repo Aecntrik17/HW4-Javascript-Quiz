@@ -1,0 +1,13 @@
+button {
+  margin-bottom: 10px;
+  border: none;
+  height: 40px;
+  cursor: pointer;
+  background-color: #ff9500;
+  color: white;
+  font-size: 1em;
+}
+
+.container {
+  text-align: center;
+}
