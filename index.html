@@ -67,6 +67,31 @@
                     </div>
                 </div>
             </div>
+            <!-- creating div to display the results and high scores -->
+            <div id="register">
+                <div class="card">
+                    <h2>Register your score!</h2>
+                    <form method="POST">
+                        <div class="input-group"></div>
+                        <div id="results">
+                            <p id="user-results"></p>
+                        </div>
+                        <label for="name">Name</label>
+                        <input type="name" name="name" id="name" placeholder="What is your name?" />
+                        <div id="msg"></div>
+                        <button id="save">Save Score</button>
+                    </form>
+                </div>
+                <!-- shell for recording user name and score -->
+                <div class="card">
+                    <h2>Last Registered User:</h2>
+                    <p><strong>Name:</strong> <span id="user-name"></span></p>
+                    <p><strong>Score:</strong> <span id="user-score"></span></p>
+                </div>
+                <div><button id="reset-quiz" type="button" class="btn btn-secondary btn-md">Reset Quiz</button>
+                </div>
+            </div>
+        </div>
 
 </html>
 
