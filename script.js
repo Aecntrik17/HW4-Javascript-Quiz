@@ -31,3 +31,24 @@ beginEl.addEventListener("click", function () {
   setTime();
   displayQuestion();
 });
+// funtion to generating timer, display appropriate messaging
+function setTime() {
+  timerInterval = setInterval(function () {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft + " seconds remaining.";
+
+    if (secondsLeft <= 0) {
+      clearInterval(timerInterval);
+      sendMessage();
+      registerEl.style.display = "block";
+    }
+  }, 1000);
+
+  // function to notify user of quiz end and display score
+  function sendMessage() {
+    timeEl.textContent = " Time Expired, you scored " + score + " correct ";
+    beginEl.style.display = "display";
+    secondsLeft = 60;
+    set1El.style.display = "none";
+  }
+}
