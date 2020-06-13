@@ -64,8 +64,9 @@ function displayQuestion() {
   set1El.style.display = "block";
   beginEl.style.display = "none";
 }
-
+// setting index value to 0 so the loop starts with the first array
 var i = 0;
+// defining the object, data selections
 var askQuestionEl = [
   {
     q:
@@ -103,3 +104,26 @@ var askQuestionEl = [
     answer: "Strings",
   },
 ];
+// creating function to verify answers chosen
+function verifyAns(event) {
+  let userChoice = event.target.textContent;
+  //   if correct, alert user
+  if (userChoice === askQuestionEl[i].answer) {
+    score++;
+    alert("correct");
+    //   if the answer is incorrect alert and assess a 5 second penalty
+  } else {
+    incorrectEl++;
+    alert("incorrect");
+    secondsLeft = secondsLeft - 5;
+  }
+  // proceed to the next array of questions, answers, and correct answer in the object
+  i++;
+
+  // making sure that the code pushes to the next question, until the last question, then putting clock to 0 which ends the quiz
+  if (i < 4) {
+    displayQuestion();
+  } else {
+    secondsLeft = 0;
+  }
+}
