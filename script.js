@@ -16,17 +16,29 @@ var userScoreEl = document.querySelector("#user-score");
 var userNameSpan = document.querySelector("#user-name");
 var registerEl = document.querySelector("#register");
 var resetBtn = document.querySelector("#reset-quiz");
+var recentList = document.querySelector("#recent");
 let score = 0;
 let incorrectEl = 0;
 var timerInterval;
 var secondsLeft = 60;
+var leadersArray = [];
+
+// checking to see if the leadersArray is empty, and if there is 
+// already a result to make sure that the next is added and not replacing the existing
+var localstorageArray = localStorage.getItem("leadersArray")
+localstorageArray = JSON.parse(localstorageArray);
+
+// checking to see if localstorageArray is actually an array
+if (localstorageArray && Array.isArray(localstorageArray)){
+  leadersArray = localstorageArray;
+}
 
 // hides the results and register framework at the start of the quiz
 set1El.style.display = "none";
 registerEl.style.display = "none";
 
 // activating start button, starting the timer, and displaying first question
-beginEl.addEventListener("click", function () {
+beginEl.addEventListener("click", function (event) {
   event.preventDefault;
   setTime();
   displayQuestion();
@@ -144,7 +156,7 @@ function displayMessage(type, message) {
 // storing user name and sscore to local storage
 function renderLastRegistered() {
   let userName = localStorage.getItem("userName");
-  let userScore = localStorage.getItem("userScore");
+  let userScore = localStorage.getItem("score");
 
   if (name && userScore === null) {
     return;
@@ -153,6 +165,17 @@ function renderLastRegistered() {
   // this is taking the saved user name and score from the local storage and writing it to the page in the placeholder input
   userNameSpan.textContent = userName;
   userScoreEl.textContent = score;
+
+  // making sure the recentList is cleared before each attempt
+  recentList.innerHTML="";
+  // looping over the leaders array and dynamically generating a li with user name and score
+  for( let i = 0; i < leadersArray.length; i++){
+    // creating li element to display the results
+    const li = document.createElement("li")
+    // appending the li with text from the leaders array
+    li.textContent = leadersArray[i].userName + leadersArray[i].score
+    recentList.append(li)
+  }
 }
 
 // activating the save submit button after the user inputs their name
@@ -172,9 +195,13 @@ saveBtn.addEventListener("click", function (event) {
     displayMessage("success", "Registered successfully");
 
     // setting name and userScore inputs to local storage
+    const recentScore = { userName, score }
+    leadersArray.push(recentScore);
+    localStorage.setItem("leadersArray", JSON.stringify(leadersArray));
     localStorage.setItem("userName", userName);
     localStorage.setItem("userScore", score);
     renderLastRegistered();
+
   }
 });
 
@@ -182,10 +209,9 @@ resetBtn.addEventListener("click", function (event) {
   location.reload(true);
 });
 
-var clearBtn = document.createElement("button");
-clearBtn.textContent = "Clear";
+clearBtn = document.querySelector("#clear-quiz");
 
 clearBtn.onclick = function (event) {
   event.preventDefault;
-  window.localStorage.empty();
+  localStorage.clear()
 };
